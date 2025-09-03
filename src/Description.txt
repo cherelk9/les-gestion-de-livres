@@ -1,0 +1,54 @@
+# gestion d'une bibliothèque
+
+Domain drive design
+## une personne peut effectuer different operation dans la bibliothèque
+### il peut entre autre : emprunter des livres, rendre des livres, avoir des amendes
+## quels sont les operations qu'une bibliothèque peut effectuer sur un livre
+### elle peut : faire l'inventaire sur les livres
+
+### DDD (domain drive design)
+# emprunter : qui emprunte le livre l'utilisateur ? → utilisateur (User)
+# emprunter (User, Books,
+
+# amender : qui est amendé ? → l'utilisateur(User) pourquoi il est amendé ?, car il n'a pas rendu le livre (Books)
+#amender (User, Books)
+
+# inventaire : on fait l'inventaire sur quoi ? → les livres
+
+
+# il ressort que : → les aggregates que nous avons noté sont :
+  → emprunter (User, Book)
+  → amender (User, Books)
+  → inventaire(Books)
+
+
+
+
+## le but est implementer une architecture hexagonale
+→ sous forme de microservices
+→ les differentes parties de notre architecture hexagonale sont :
+`domain(metier / cores),
+ application(Services),
+ web(vue),
+ adapter `
+
+
+
+# on va commencer par aggregation (→ inventaire avec l'entité Books)
+## definition des attributs de Books
+# Books (
+    String id,
+    String isbn,
+    String title,
+    String author,
+    String publisher,
+    Integer publicationYear,
+    String location,
+    BooksStatus status,   # BooksStatus est une enumeration
+    LocalDateTime lastStatusChange,
+    String lastBorrowerId
+);
+
+
+
+
