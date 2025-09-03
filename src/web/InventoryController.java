@@ -11,7 +11,9 @@ public class InventoryController {
 
     private final File file = new File("books.txt");
 
-    private final InventoryUserCase inventoryUserCase;
+    private InventoryUserCase inventoryUserCase;
+
+    public InventoryController(){};
 
     public InventoryController(InventoryUserCase inventoryUserCase) {
         this.inventoryUserCase = inventoryUserCase;

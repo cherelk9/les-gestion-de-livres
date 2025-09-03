@@ -14,7 +14,9 @@ import java.util.Optional;
 public class InventoryService implements InventoryUserCase {
     File file = new File("books.txt");
 
-    private final BooksRepository booksRepository;
+    private  BooksRepository booksRepository;
+
+    public InventoryService() {}
 
     public InventoryService(BooksRepository  booksRepository) {
         this.booksRepository = booksRepository;
